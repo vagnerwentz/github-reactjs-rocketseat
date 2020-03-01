@@ -9,6 +9,7 @@ run ```yarn start``` to run the project and will open the ```http://localhost:30
   <h3> Version 0.0.1 :fire: </h3>
 </p>
 
-
 This version allow us to add a Github repository using a Github API. In the input that it is possible to
 write a repository that exist in Github, if you write a repository that not exist will throw an error.
+<img src="https://github.com/vagnerwentz/github-reactjs-rocketseat/blob/master/.github/layout-github-01.png">
+<img src="https://github.com/vagnerwentz/github-reactjs-rocketseat/blob/master/.github/layout-terminal-browser-01.png">
