@@ -13,3 +13,11 @@ This version allow us to add a Github repository using a Github API. In the inpu
 write a repository that exist in Github, if you write a repository that not exist will throw an error.
 <img src="https://github.com/vagnerwentz/github-reactjs-rocketseat/blob/master/.github/layout-github-01.png">
 <img src="https://github.com/vagnerwentz/github-reactjs-rocketseat/blob/master/.github/layout-terminal-browser-01.png">
+
+<p>
+  <h3> Version 0.0.2 :fire: </h3>
+</p>
+The version 0.0.2 allow us to see all the repositoires added but without de database or localStorage, the next version
+will be to see the repositoires added same if we refresh de page.
+
+<img src="https://github.com/vagnerwentz/github-reactjs-rocketseat/blob/master/.github/github-layout-repositoires-styles-01.png">
