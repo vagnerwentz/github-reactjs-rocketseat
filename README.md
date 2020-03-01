@@ -17,7 +17,6 @@ write a repository that exist in Github, if you write a repository that not exis
 <p>
   <h3> Version 0.0.2 :fire: </h3>
 </p>
-The version 0.0.2 allow us to see all the repositoires added but without de database or localStorage, the next version
-will be to see the repositoires added same if we refresh de page.
+Version 0.0.2 allows us to see all the repositories added, but without the database or local storage when we refresh the page our data is lost the next version allows the repositories to be viewed in the same way if we update the page.
 
 <img src="https://github.com/vagnerwentz/github-reactjs-rocketseat/blob/master/.github/github-layout-repositoires-styles-01.png">
