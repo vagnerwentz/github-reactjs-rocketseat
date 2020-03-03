@@ -33,6 +33,10 @@ module.exports = {
       ],
       'import/prefer-default-export': 'off',
       'react/prefer-stateless-function': 'off',
-      'react/state-in-constructor': 'off'
+      'react/state-in-constructor': 'off',
+      "react/static-property-placement": ["warn", "property assignment", {
+        propTypes: "static public field",
+      }] /* Added this rule 'cause the static propTypes said
+         * 'propTypes' should be declared out of the class */
   },
 };

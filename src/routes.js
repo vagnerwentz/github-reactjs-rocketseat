@@ -5,13 +5,13 @@ import Main from './pages/Main';
 import Repository from './pages/Repository';
 
 export default function Routes() {
-    return (
-        <BrowserRouter>
-            {/* O Switch faz que uma rota seja chamada por momento */}
-            <Switch>
-                <Route path="/" exact component={Main} />
-                <Route path="/repository" component={Repository} />
-            </Switch>
-        </BrowserRouter>
-    );
+  return (
+    <BrowserRouter>
+      {/* O Switch faz que uma rota seja chamada por momento */}
+      <Switch>
+        <Route path="/" exact component={Main} />
+        <Route path="/repository/:repository" component={Repository} />
+      </Switch>
+    </BrowserRouter>
+  );
 }
