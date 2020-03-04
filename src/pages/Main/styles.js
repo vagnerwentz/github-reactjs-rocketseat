@@ -7,10 +7,12 @@ export const Form = styled.form`
 
   input {
     flex: 1; /* Ocupar todo espaço possível */
-    border: 1px solid #eee;
+    border: 1px solid ${props => (props.error ? '#ff6b6b' : '#eee')};
     padding: 10px 15px; /* 10px em cima em baixo e 15px na esquerda e direita */
     border-radius: 4px;
     font-size: 16px;
+
+    transition: border 0.25s ease-out;
   }
 `;
 
@@ -75,4 +77,13 @@ export const List = styled.ul`
     color: #7159c1;
     text-decoration: none;
   }
+`;
+
+export const DualRepo = styled.div`
+  max-width: 700px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin: 80px auto;
 `;

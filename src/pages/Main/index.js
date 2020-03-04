@@ -1,10 +1,11 @@
+/* eslint-disable no-throw-literal */
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import { FaGithubAlt, FaPlus, FaSpinner } from 'react-icons/fa';
 
 import Container from '../../components/Container';
-import { Form, SubmitButton, List } from './styles';
+import { Form, SubmitButton, List, DualRepo } from './styles';
 
 import api from '../../services/api';
 
@@ -15,6 +16,7 @@ export default class Main extends Component {
       newRepo: '',
       repositories: [],
       loading: false,
+      error: null,
     };
   }
 
@@ -38,29 +40,50 @@ export default class Main extends Component {
   }
 
   handleInputChange = e => {
-    this.setState({ newRepo: e.target.value });
+    this.setState({ newRepo: e.target.value, error: null });
   };
 
   handleSubmit = async e => {
     e.preventDefault();
     const { newRepo, repositories } = this.state;
 
-    this.setState({ loading: true });
+    this.setState({ loading: true, error: false });
 
-    const response = await api.get(`/repos/${newRepo}`);
+    try {
+      if (newRepo === '') throw 'Você precisa indicar um repositório!';
 
-    const data = {
-      name: response.data.full_name,
-    };
-    this.setState({
-      repositories: [...repositories, data],
-      newRepo: '',
-      loading: false,
-    });
+      const response = await api.get(`/repos/${newRepo}`);
+
+      const hasRepo = repositories.find(repo => repo.name === newRepo);
+
+      showDuplicateRepository(hasRepo);
+
+      const data = {
+        name: response.data.full_name,
+      };
+      this.setState({
+        repositories: [...repositories, data],
+        newRepo: '',
+      });
+    } catch (error) {
+      this.setState({ error: true });
+    } finally {
+      this.setState({ loading: false });
+    }
   };
 
+  showDuplicateRepository(hasRepo) {
+    if (hasRepo) {
+      return (
+        <DualRepo>
+          <h1>Repositório duplicado</h1>
+        </DualRepo>
+      );
+    }
+  }
+
   render() {
-    const { newRepo, repositories, loading } = this.state;
+    const { newRepo, repositories, loading, error } = this.state;
     return (
       // O Container será de grande utilidade para fazer alguns alinhamentos
       <Container>
@@ -69,7 +92,7 @@ export default class Main extends Component {
           Repositórios
         </h1>
 
-        <Form onSubmit={this.handleSubmit}>
+        <Form onSubmit={this.handleSubmit} error={error}>
           <input
             type="text"
             placeholder="Adicionar repositório"
