@@ -20,3 +20,12 @@ write a repository that exist in Github, if you write a repository that not exis
 Version 0.0.2 allows us to see all the repositories added, but without the database or local storage when we refresh the page our data is lost the next version allows the repositories to be viewed in the same way if we update the page.
 
 <img src="https://github.com/vagnerwentz/github-reactjs-rocketseat/blob/master/.github/github-layout-repositoires-styles-01.png">
+
+<p>
+  <h3> Version 0.0.3 :fire: </h3>
+</p>
+
+The Version 0.0.3 it's fantastic because this version allow us to see the repository issues with the labels
+and when we click on the isue, the issue URL will open.
+
+<img src="https://github.com/vagnerwentz/github-reactjs-rocketseat/blob/master/.github/layout-repository-issues.png"> 
