@@ -17,6 +17,7 @@ export default class Main extends Component {
       repositories: [],
       loading: false,
       error: null,
+      dualRepo: false,
     };
   }
 
@@ -56,7 +57,10 @@ export default class Main extends Component {
 
       const hasRepo = repositories.find(repo => repo.name === newRepo);
 
-      showDuplicateRepository(hasRepo);
+      if (hasRepo) {
+        this.setState({ dualRepo: true });
+        return;
+      }
 
       const data = {
         name: response.data.full_name,
@@ -72,18 +76,8 @@ export default class Main extends Component {
     }
   };
 
-  showDuplicateRepository(hasRepo) {
-    if (hasRepo) {
-      return (
-        <DualRepo>
-          <h1>Repositório duplicado</h1>
-        </DualRepo>
-      );
-    }
-  }
-
   render() {
-    const { newRepo, repositories, loading, error } = this.state;
+    const { newRepo, repositories, loading, error, dualRepo } = this.state;
     return (
       // O Container será de grande utilidade para fazer alguns alinhamentos
       <Container>
@@ -107,6 +101,13 @@ export default class Main extends Component {
               <FaPlus color="#FFF" size={14} />
             )}
           </SubmitButton>
+          {dualRepo ? (
+            <DualRepo>
+              <h1>REPO DUPLICADO</h1>
+            </DualRepo>
+          ) : (
+            <></>
+          )}
         </Form>
         <List>
           {repositories.map(repository => (
