@@ -101,14 +101,16 @@ export default class Main extends Component {
               <FaPlus color="#FFF" size={14} />
             )}
           </SubmitButton>
-          {dualRepo ? (
-            <DualRepo>
-              <h1>REPO DUPLICADO</h1>
-            </DualRepo>
-          ) : (
-            <></>
-          )}
         </Form>
+        {dualRepo ? (
+          <DualRepo>
+            <h1>Repositório duplicado</h1>
+            <span>Adicione um repositório existente</span>
+          </DualRepo>
+        ) : (
+          <></>
+        )}
+
         <List>
           {repositories.map(repository => (
             <li key={repository.name}>

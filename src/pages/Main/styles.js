@@ -81,9 +81,26 @@ export const List = styled.ul`
 
 export const DualRepo = styled.div`
   max-width: 700px;
-  background: #fff;
+  background: #ff0000;
   border-radius: 4px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  margin: 80px auto;
+  padding: 10px;
+  margin: 10px auto;
+
+  h1 {
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Deixar centralizado o ícone com o texto */
+
+    align-content: center;
+  }
+
+  span {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Deixar centralizado o ícone com o texto */
+
+    align-content: center;
+  }
 `;
